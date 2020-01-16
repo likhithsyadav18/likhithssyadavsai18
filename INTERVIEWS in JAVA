@@ -1,0 +1,16 @@
+i = 0
+n = int(input("Enter the number to check parity:"))
+temp = n
+r = []
+while n != 0:
+    r.append(int(n % 2))
+    n = n // 2
+    i = i + 1
+r.reverse()
+print(temp, r)
+count = r.count(1)
+print("No of 1s:", count)
+if count % 2 == 1:
+    print("Odd Parity")
+else:
+    print("Even Parity")
