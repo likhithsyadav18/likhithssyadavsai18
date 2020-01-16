@@ -1,0 +1,24 @@
+m = 0
+n = int(input("Enter the number to check parity:"))
+temp = n
+r = []
+#Number to Binary Conversion
+while n != 0:
+    r.append(int(n % 2))
+    n = n // 2
+    m = m + 1
+r.reverse()
+print(temp, r)
+
+#Swapping
+i=int(input("Ënter position 1 to swap:"))
+j=int(input("Ënter position 2 to swap:"))
+if 0<=i<=len(r) and 0<=j<=len(r) and i!=j:
+    r[i-1],r[j-1]=r[j-1],r[i-1]
+#Swapped Value
+j=len(r)-1
+s=0
+for a in r:
+   s=s+a*2**j
+   j=j-1
+print(s,r)
