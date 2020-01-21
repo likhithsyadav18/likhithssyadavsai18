@@ -9,4 +9,6 @@ b. Swapping of Bit Word
 
 c. Reversing of Bit Word
 
-d. Closest Integer with Same Weight
+d. Rotation of Bit Words
+
+e. Closest Integer with Same Weight
