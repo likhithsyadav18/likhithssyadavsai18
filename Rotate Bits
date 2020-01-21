@@ -1,0 +1,34 @@
+def leftrotate(seq, n):
+    n = n % len(seq)
+    return seq[n:] + seq[:n]
+
+
+def rightrotate(seq, n):
+    n = n % len(seq)
+    return seq[-n:] + seq[:-n]
+
+
+def sumvalue(seq):
+    j = len(seq) - 1
+    s = 0
+    for a in seq:
+        s = s + a * 2 ** j
+        j = j - 1
+    return s
+
+
+m = 0
+n = int(input("Enter the number to check parity:"))
+temp = n
+r = []
+# Number to Binary Conversion
+while n != 0:
+    r.append(int(n % 2))
+    n = n // 2
+    m = m + 1
+r.reverse()
+print(temp, r)
+
+i = int(input("Enter places to rotate:"))
+print(sumvalue(leftrotate(r, i)), leftrotate(r, i))
+print(sumvalue(rightrotate(r, i)), rightrotate(r, i))
