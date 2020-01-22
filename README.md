@@ -1,5 +1,5 @@
 # likhithssyadavsai18
-Coding on Elements of Programming in Java
+Coding on Elements of Programming in Python
 
 Section 1:  Primitive Types
 
