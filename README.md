@@ -12,3 +12,7 @@ c. Reversing of Bit Word
 d. Rotation of Bit Words
 
 e. Closest Integer with Same Weight
+
+Section 2:  Arrays
+
+a.Dutch National Flag Problem and German National Flag Problem
