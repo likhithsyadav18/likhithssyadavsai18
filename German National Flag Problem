@@ -1,0 +1,50 @@
+# This is a classic example for Sort and Swap
+# Sort of 0s,1s,2s in array
+
+def germanflagconv(l:list):
+    a=[]
+    for i in l:
+        if i=='B':
+            a.append(1)
+        elif i=='W':
+            a.append(2)
+        elif i=='G':
+            a.append(0)
+        else:
+            break
+    return a
+
+def revConv(l:list):
+    b=[]
+    for i in l:
+        if i==0:
+            b.append('G')
+        elif i==1:
+            b.append('B')
+        elif i==2:
+            b.append('W')
+        else:
+            break
+    return list(reversed(b))
+
+def SwapSort(a,low,high):
+    low = 0
+    high = len(a) - 1
+    mid = 0
+    while mid <= high:
+        if a[mid] == 0:
+            a[low], a[mid] = a[mid], a[low]
+            low = low + 1
+            mid = mid + 1
+        elif a[mid] == 1:
+            mid = mid + 1
+        else:
+            a[mid], a[high] = a[high], a[mid]
+            high = high - 1
+    return a
+
+flag= ['B', 'G', 'B', 'B', 'W', 'W', 'G', 'G', 'W']
+n=germanflagconv(flag)
+m=len(n)
+SwapSort(n,0,m-1)
+print('German Flag',revConv(n))
