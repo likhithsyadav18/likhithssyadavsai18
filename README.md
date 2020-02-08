@@ -15,6 +15,8 @@ e. Closest Integer with Same Weight
 
 Section 2:  Arrays
 
-a. Dutch National Flag Problem
+a. Array Ordering(Swapping and Sorting)
 
-b. German National Flag Problem
+b. Dutch National Flag Problem
+
+c. German National Flag Problem
