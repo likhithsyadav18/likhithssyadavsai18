@@ -1,0 +1,52 @@
+# This is a classic example for QuickSort Algorithm
+# Sort of 0s,1s,2s in array
+# 3-way partitioning
+
+def dutchflagconv(l:list):
+    a=[]
+    for i in l:
+        if i=='B':
+            a.append(0)
+        elif i=='W':
+            a.append(1)
+        elif i=='G':
+            a.append(2)
+        else:
+            break
+    return a
+
+def revConv(l:list):
+    b=[]
+    for i in l:
+        if i==0:
+            b.append('B')
+        elif i==1:
+            b.append('W')
+        elif i==2:
+            b.append('G')
+        else:
+            break
+    return list(reversed(b))
+
+
+def partition(arr,low,high):
+    i = (low-1)
+    pivot = arr[high]
+    for j in range(low , high):
+        if arr[j] < pivot:
+            i = i+1
+            arr[i],arr[j] = arr[j],arr[i]
+    arr[i+1],arr[high] = arr[high],arr[i+1]
+    return (i+1)
+
+def quickSort(arr,low,high):
+    if low < high:
+        p = partition(arr,low,high)
+        quickSort(arr, low, p-1)
+        quickSort(arr, p+1, high)
+
+flag= ['B', 'G', 'B', 'B', 'W', 'W', 'G', 'G', 'W']
+m=dutchflagconv(flag)
+n=len(m)
+quickSort(m,0,n-1)
+print('Dutch Flag:',revConv(m))
