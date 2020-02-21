@@ -1,0 +1,22 @@
+'''
+Write a program that takes an array denoting the daily stock price, and returns the maximum profit that could be made by
+buying and then selling one share of that stock
+'''
+
+
+def MaxProfitCompute(amt: list):
+    minprice = max(amt)
+    maxprofit = 0
+    for price in amt:
+        maxprofit = max(maxprofit, (price - minprice))
+        minprice = min(minprice, price)
+    sellprice = minprice + maxprofit
+    return "MaxProfit:{0} MinPrice:{1} SellPrice:{2}".format(str(maxprofit), str(minprice), str(sellprice))
+
+
+priceseqA = [310, 315, 275, 295, 260, 270, 290, 230, 255, 250]
+priceseqB = [310, 310, 275, 275, 260, 260, 260, 230, 230, 230]
+a = MaxProfitCompute(priceseqA)
+b = MaxProfitCompute(priceseqB)
+print(a)
+print(b)
