@@ -1,0 +1,26 @@
+'''
+Write a program which takes an input sorted array and updates it so that all duplicates have been removed and
+the remaining elements have been shifted left to fill the emptied indices.Return the number of valid elements.
+Example:[2, 3, 5, 5, 7, 11, 11, 11, 13, 15] after deletion of duplicates gives [2, 3, 5, 7, 11, 13, 15].So, number of
+valid elements are 7.
+'''
+
+def deleteDuplicates(a: list):      #returns number of valid entries after deletion
+    if len(a) == 0:
+        return 0
+    writeindex = 1
+    i = 1
+    while i<len(a):
+        if not a[writeindex - 1] == a[i]:
+            a[writeindex] = a[i]
+            writeindex = writeindex + 1
+        i=i+1
+    for i in range(len(a)):
+        if i>(writeindex-1):
+            a.pop()
+    return writeindex,a
+
+
+l = [2, 3, 5, 5, 7, 11, 11, 11, 13, 15]
+a=deleteDuplicates(l)
+print("No of valid entries:"+ str(a))
