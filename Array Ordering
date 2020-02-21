@@ -1,0 +1,16 @@
+#For an array of integers we need to reorder entries such that even entries appear first.
+lis=[2,5,7,6,58,4,3,32,1,1]
+def reOrder(a:list):
+    evenindex=0
+    temp=0
+    oddindex= len(a)-1
+    while evenindex<oddindex:
+        if a[evenindex]%2==0:
+            evenindex=evenindex+1
+        else:
+            temp=a[evenindex]
+            a[evenindex]=a[oddindex]
+            a[oddindex]=temp
+            oddindex=oddindex-1
+    return sorted(a[:evenindex])+sorted(a[oddindex:])       #sorted(list,reverse=True/False)
+print(reOrder(lis))
