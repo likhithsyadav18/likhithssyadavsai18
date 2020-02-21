@@ -1,0 +1,19 @@
+# Write an program which takes an array of n integers,where A[i] denotes the maximum you can advance from index i
+# and returns whether it is possible to advance to the last index starting from the beginning of the array.
+
+def canReachEnd(a: list):
+    furtherReachSoFar = 0
+    lastindex = len(a) - 1
+    i = 0
+    while i <= furtherReachSoFar and i < lastindex:
+        furtherReachSoFar = max(furtherReachSoFar, (i + a[i]))
+        i = i + 1
+    return furtherReachSoFar >= lastindex
+
+
+maxAdvanceStepsA = [3, 3, 1, 0, 2, 0, 1]
+maxAdvanceStepsB = [3, 2, 0, 0, 2, 0, 1]
+b: bool = canReachEnd(maxAdvanceStepsA)
+print(b)
+c: bool = canReachEnd(maxAdvanceStepsB)
+print(c)
