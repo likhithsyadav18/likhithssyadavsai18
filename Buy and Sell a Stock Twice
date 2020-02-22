@@ -1,0 +1,38 @@
+'''
+Write a program that computes the maximum profit that can be made by selling and buying a share at most twice.
+The second buy must be made after the first sale.
+'''
+
+
+def BuyAndSellStockTwice(prices: list):
+    maxTotalProfit = 0
+    firstBuySellProfits = []
+    #secondBuySellProfits = []
+    minPriceSoFar = max(prices)
+    maxPriceSoFar = min(prices)
+
+    # Forward Phase-->Max. Profit Sell on Each Day if we make first buy
+    i = 0
+    while i < len(prices):
+        minPriceSoFar = min(minPriceSoFar, prices[i])
+        maxTotalProfit = max(maxTotalProfit, prices[i] - minPriceSoFar)
+        firstBuySellProfits.append(maxTotalProfit)
+        i = i + 1
+    #print("First Sell Buy Profits:" + str(firstBuySellProfits))
+    #print("For first buy: Min price so far:" + str(minPriceSoFar) + " " + "Max total profit so far:" + str(maxTotalProfit))
+
+    # Backward Phase-->Max. Profit Sell on Each Day if we make second buy
+    j = len(prices) - 1
+    while j > 0:
+        maxPriceSoFar = max(maxPriceSoFar, prices[j])
+        maxTotalProfit = max(maxTotalProfit, maxPriceSoFar - prices[j] + firstBuySellProfits[j - 1])
+        #secondBuySellProfits.append(maxTotalProfit)
+        j = j - 1
+    #print("Second Sell Buy Profits:" + str(secondBuySellProfits))
+    #print("For second buy: Max price so far:" + str(maxPriceSoFar))
+
+    return maxTotalProfit
+
+a = [12, 11, 13, 9, 12, 8, 14, 13, 15]
+b = BuyAndSellStockTwice(a)
+print("Max Total Profit:"+str(b))
