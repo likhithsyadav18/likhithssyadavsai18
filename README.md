@@ -31,4 +31,12 @@ g. Buy and Sell a stock once
 
 h. Buy and Sell a stock twice
 
-i.
+i. Enumerate all primes to n
+
+j. Permute the elements of an array
+
+k. Compute the next permutation
+
+l. Compute the previous permutation
+
+m.
