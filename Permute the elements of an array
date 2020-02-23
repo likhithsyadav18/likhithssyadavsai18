@@ -1,0 +1,24 @@
+'''
+Given an array A of n elements and a permutation P,apply P to A.
+Input: A[] = {1, 2, 3, 4}, P[] = {3, 2, 1, 0}
+Output: 4 3 2 1
+'''
+
+
+def applyPermutation(A: list, P: list):
+    for i in range(len(A)):
+        next = i
+        while P[next] >= 0:
+            t = A[i]
+            A[i] = A[P[next]]
+            A[P[next]] = t
+            temp = P[next]
+            P[next] = P[next] - len(A)
+            next = temp
+    return A
+
+
+a = [1, 2, 3, 4]
+p = [3, 2, 1, 0]
+res = applyPermutation(a, p)
+print(res)
