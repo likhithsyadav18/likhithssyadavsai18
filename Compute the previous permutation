@@ -1,0 +1,31 @@
+'''
+Write a program that takes as input a permutation and returns the previous permutation under dictionary ordering.
+If the permutation is the last permutation,then return the empty array.
+Input: A[] = {1, 0, 3, 2}
+Output: {1,0,2,3}
+'''
+
+
+def PreviousPermutation(P: list):
+    n = len(P) - 1
+    i = n
+    while i > 0 and P[i - 1] <= P[i]:
+        i =i-1
+
+    if i <= 0:
+        return []
+
+    j = i - 1
+    while (j + 1 <= n and P[j + 1] <= P[i - 1]):
+        j += 1
+
+    temp = P[i - 1]
+    P[i - 1] = P[j]
+    P[j] = temp
+
+    return P
+
+
+a = [1, 0, 3, 2]
+r = PreviousPermutation(a)
+print(r)
