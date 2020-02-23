@@ -1,0 +1,50 @@
+'''
+Write a program that takes an integer argument and returns all the primes between 1 and the integer.
+For example,if the input is 18,you should return [2,3,5,7,11,13,17].
+'''
+
+#Method 1: Prime number property 6p+1 or 6p-1.
+def PrimeCheck(a: int):
+    if a<=1:
+        return False
+    if a<=3:
+        return True
+    if a%2==0 or a%3==0:
+        return False
+    i=5
+    while i*i<=a:
+        if a%i==0 or a%(i+2)==0:
+            return False
+        i=i+6
+    return True
+
+def generatePrimes(n: int):
+    primes = []
+    for i in range(2,n+1):
+        if PrimeCheck(i):
+            primes.append(i)
+    return primes
+
+l=16
+b=generatePrimes(l)
+print(b)
+
+
+# Method 2-Sieve of Eratosthenes
+def CheckPrime(n: int):
+    prime=[True for i in range(n+1)]
+    listprimes=[]
+    p=2
+    while p*p<=n:
+        if prime[p]==True:
+            for i in range(p*p,n+1,p):
+                prime[i]=False
+        p=p+1
+    for p in range(2,n):
+        if prime[p]:
+            listprimes.append(p)
+    return listprimes
+
+l=16
+c=CheckPrime(l)
+print(c)
