@@ -1,0 +1,32 @@
+'''
+Write a program that takes as input a permutation and returns the next permutation under dictionary ordering.
+If the permutation is the last permutation,then return the empty array.
+Input: A[] = {1, 0, 3, 2}
+Output: {1,2,0,3}
+Input: A[] = {3,2,1,0}
+Output: {}
+'''
+
+
+def nextPermutation(P: list):
+    n = len(P) - 2
+    k = n
+    while k >= 0 and P[k] >= P[k + 1]:
+        k = k - 1
+    if k <= 0:
+        return []  # Last permutation
+
+    for j in reversed(range(k, len(P))):
+        if P[j] > P[k]:
+            break
+    temp = P[k]
+    P[k] = P[j]
+    P[j] = temp
+    P[k + 1:] = reversed(P[k + 1:])  #smallest dictionary order by subset and reversing
+    return P
+
+
+a = [3, 2, 1, 0]
+b=[1,0,3,2]
+r,s = nextPermutation(a),nextPermutation(b)
+print(r,s)
