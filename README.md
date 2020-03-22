@@ -39,4 +39,4 @@ k. Compute the next permutation
 
 l. Compute the previous permutation
 
-m.
+m. Compute a random permutation
