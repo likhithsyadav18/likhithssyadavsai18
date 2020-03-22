@@ -1,0 +1,30 @@
+'''
+Design a program that creates uniformly random permutatios of [0,1,2,.....,n-1].Given a random number generator function
+that generates integers in the set [0,1,2,...,n-1] with equal probability.
+'''
+from random import randint
+def Swap(l: list, i: int, j: int):
+    if i == j:
+        return
+    temp = l[i]
+    l[i] = l[j]
+    l[j] = temp
+    return l
+
+def computeRandomPermutation(n:int):
+    permutation=[i for i in range(0,n)]
+    print('Initial List:',permutation)
+    res=[]
+    i=0
+    if n>len(permutation):
+        return "Subset not possible"
+    while i < n:
+        r = randint(i, n-1)
+        res.append(permutation[r])
+        Swap(permutation, i, r)
+        i = i + 1
+    return res
+
+n=4
+res=computeRandomPermutation(n)
+print('Random Permuted List:',res)
