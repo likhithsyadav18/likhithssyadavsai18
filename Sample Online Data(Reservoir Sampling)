@@ -1,0 +1,26 @@
+'''
+Reservoir Sampling
+Design a program that takes an input size of value 'k' and then read the packets,continuously maintaining
+a uniform random subset of size 'k' of the read packets.
+'''
+from random import randrange
+
+def onlineRandomSampling(seq: list, subset_size : int):
+    seq_index=0     # index for elements of seq list
+    res = [0]*subset_size     #resultant set
+    for seq_index in range(subset_size):
+        res[seq_index] = seq[seq_index]     #seq items list being copied to res
+
+    while(seq_index < len(seq)):    #Iterating from (subset_size+1)th element till the seq length
+        rand_num = randrange(0,seq_index+1)     #selecting random number from [0,seq_index]
+        if(rand_num < subset_size):
+            #If the selected random number(rand_num) is less than subset_size,
+            # then replace the element present at the index(rand_num) of res list
+            # with new element from seq list of seq_index
+            res[rand_num] = seq[seq_index]
+        seq_index+=1
+    return res
+a = ['p', 'q', 'r', 't', 'u', 'v']
+b = 3
+result = onlineRandomSampling(a, b)
+print(b,"-item uniform random subset:",result)
