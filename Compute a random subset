@@ -1,0 +1,28 @@
+from random import randint
+def randomSubset(n, k):  # Return k-sized random subet of {0,1,2,....n-1}
+    changedElement = dict()
+    for i in range(0, k):
+        ridx = randint(i, n - 1)
+        ptr1 = changedElement.get(ridx)
+        ptr2 = changedElement.get(i)
+        if ptr1 == None and ptr2 == None:
+            changedElement[ridx] = i
+            changedElement[i] = ridx
+        elif ptr1 == None and ptr2 != None:
+            changedElement[ridx] = ptr2
+            changedElement[i] = ridx
+        elif ptr1 != None and ptr2 == None:
+            changedElement[i] = ptr1
+            changedElement[ridx] = i
+        else:
+            changedElement[i] = ptr1
+            changedElement[ridx] = ptr2
+    res = []
+    for i in range(0, k):
+        res.append(changedElement[i])
+    return res
+
+subset_size=4
+array_size=100
+result=randomSubset(array_size,subset_size)
+print(result)
