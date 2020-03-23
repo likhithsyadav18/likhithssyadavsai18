@@ -1,0 +1,34 @@
+def spiralPrint(end_row, end_col, arr):
+    start_row = 0
+    start_col = 0
+    while start_row < end_row and start_col < end_col:
+        # Print the first row from the remaining rows
+        for i in range(start_col, end_col):
+            print(arr[start_row][i], end=" ")
+        start_row += 1
+
+        # Print the last column from the remaining columns
+        for i in range(start_row, end_row):
+            print(arr[i][end_col - 1], end=" ")
+        end_col -= 1
+
+        # Print the last row from the remaining rows
+        if start_row < end_row:
+            for i in range(end_col - 1, (start_col - 1), -1):
+                print(arr[end_row - 1][i], end=" ")
+            end_row -= 1
+
+        # Print the first column from the remaining columns
+        if start_col < end_col:
+            for i in range(end_row - 1, start_row - 1, -1):
+                print(arr[i][start_col], end=" ")
+            start_col += 1
+
+
+arr = [[1, 2, 3, 4, 5, 6],
+     [7, 8, 9, 10, 11, 12],
+     [13, 14, 15, 16, 17, 18]]
+
+row_end = 3
+col_end = 6
+print('Spiral Order:',spiralPrint(row_end, col_end, arr))
