@@ -1,3 +1,4 @@
+#Hivecomb successive sum approach
 def printPascal(rows): 
     arr=[]
     for line in range(rows):
