@@ -13,7 +13,9 @@ d. Rotation of Bit Words
 
 e. Closest Integer with Same Weight
 
-Section 2:  Arrays
+Section 2: Arrays 
+
+    1-D Arrays
 
 a. Array Ordering(Swapping and Sorting)
 
@@ -40,3 +42,21 @@ k. Compute the next permutation
 l. Compute the previous permutation
 
 m. Compute a random permutation
+
+n. Sample Offline Data
+
+o. Sample Online Data(Reservoir Sampling)
+
+p. Compute a random subset
+
+r. Generate non-uniform random numbers
+
+      2-D Arrays
+      
+s. The Sudoku Checker Problem
+
+t. Compute the spiral ordering of a 2-D array
+
+u. Rotate a 2-D Array
+
+v. Compute rows in Pascal's Triangle
