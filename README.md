@@ -1,4 +1,6 @@
 # likhithssyadavsai18
+Hi This is my repository on coding in python.
+
 Coding on Elements of Programming in Python
 
 Section 1:  Primitive Types
